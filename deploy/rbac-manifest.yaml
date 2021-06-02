@@ -76,6 +76,15 @@ rules:
   - patch
   - update
   - watch
+# Used to display PhaseChange events in CalibreJobs
+# Only required for this Calibre RBAC PoC
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - create
+  - patch
 - apiGroups:
   - calibre.siemens.com
   resources:
