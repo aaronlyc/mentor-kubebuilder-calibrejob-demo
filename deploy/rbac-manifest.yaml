@@ -16,19 +16,14 @@ rules:
   - pods
   verbs:
   - create
-  - delete
   - get
   - list
-  - patch
-  - update
   - watch
 - apiGroups:
   - calibre.siemens.com
   resources:
   - calibrejobs
   verbs:
-  - create
-  - delete
   - get
   - list
   - patch
