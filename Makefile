@@ -91,6 +91,21 @@ deploy-output: manifests kustomize ## Deploy controller to the K8s cluster speci
 	cd config/manager && $(KUSTOMIZE) edit set image controller=${IMG}
 	$(KUSTOMIZE) build config/default > controller-manifest.yaml
 
+deploy-testing:
+	kubectl apply -f deploy/ns-manifest.yaml
+	kubectl apply -f deploy/crd-manifest.yaml
+	kubectl apply -f deploy/calibre_v1_calibrejob.yaml
+	kubectl apply -f deploy/rbac-manifest.yaml
+	kubectl apply -f deploy/user-rbac-manifest.yaml
+	kubectl apply -f deploy/controller-manifest.yaml
+
+undeploy-testing:
+	kubectl delete -f deploy/controller-manifest.yaml
+	kubectl delete -f deploy/calibre_v1_calibrejob.yaml
+	kubectl delete -f deploy/rbac-manifest.yaml
+	kubectl delete -f deploy/user-rbac-manifest.yaml
+	kubectl delete -f deploy/crd-manifest.yaml
+
 CONTROLLER_GEN = $(shell pwd)/bin/controller-gen
 controller-gen: ## Download controller-gen locally if necessary.
 	$(call go-get-tool,$(CONTROLLER_GEN),sigs.k8s.io/controller-tools/cmd/controller-gen@v0.4.1)
