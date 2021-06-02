@@ -1,0 +1,8 @@
+apiVersion: calibre.siemens.com/v1
+kind: CalibreJob
+metadata:
+  name: calibrejob-sample
+spec:
+  # Add fields here
+  schedule: "2020-01-30T10:02:00Z"
+  command: 'echo "Something from the past told me to do this now."'

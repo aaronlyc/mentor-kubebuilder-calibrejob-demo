@@ -1,0 +1,24 @@
+# permissions for end users to edit calibrejobs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: calibrejob-editor-role
+rules:
+- apiGroups:
+  - calibre.siemens.com
+  resources:
+  - calibrejobs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - calibre.siemens.com
+  resources:
+  - calibrejobs/status
+  verbs:
+  - get

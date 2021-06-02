@@ -1,0 +1,16 @@
+domain: siemens.com
+layout:
+- go.kubebuilder.io/v3
+projectName: calibre
+repo: calibre.siemens.com/calibrejob
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: siemens.com
+  group: calibre
+  kind: CalibreJob
+  path: calibre.siemens.com/calibrejob/api/v1
+  version: v1
+version: "3"

@@ -1,0 +1,20 @@
+# permissions for end users to view calibrejobs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: calibrejob-viewer-role
+rules:
+- apiGroups:
+  - calibre.siemens.com
+  resources:
+  - calibrejobs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - calibre.siemens.com
+  resources:
+  - calibrejobs/status
+  verbs:
+  - get
