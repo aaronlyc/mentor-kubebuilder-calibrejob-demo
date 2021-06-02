@@ -111,12 +111,6 @@ rules:
 - apiGroups:
   - calibre.siemens.com
   resources:
-  - calibrejobs/finalizers
-  verbs:
-  - update
-- apiGroups:
-  - calibre.siemens.com
-  resources:
   - calibrejobs/status
   verbs:
   - get
