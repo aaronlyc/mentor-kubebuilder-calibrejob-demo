@@ -96,6 +96,7 @@ deploy-testing:
 	kubectl apply -f deploy/crd-manifest.yaml
 	kubectl apply -f deploy/calibre_v1_calibrejob.yaml
 	kubectl apply -f deploy/rbac-manifest.yaml
+	kubectl apply -f deploy/leader-election-rbac-manifest.yaml
 	kubectl apply -f deploy/user-rbac-manifest.yaml
 	kubectl apply -f deploy/controller-manifest.yaml
 
@@ -104,6 +105,7 @@ undeploy-testing:
 	kubectl delete -f deploy/calibre_v1_calibrejob.yaml
 	kubectl delete -f deploy/rbac-manifest.yaml
 	kubectl delete -f deploy/user-rbac-manifest.yaml
+	kubectl delete -f deploy/leader-election-rbac-manifest.yaml
 	kubectl delete -f deploy/crd-manifest.yaml
 
 CONTROLLER_GEN = $(shell pwd)/bin/controller-gen
